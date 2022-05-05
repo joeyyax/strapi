@@ -15,7 +15,10 @@
     "@strapi/plugin-users-permissions": "4.1.9",
     "@strapi/provider-upload-cloudinary": "4.1.9",
     "@strapi/strapi": "4.1.9",
-    "pg": "8.7.3"
+    "pg": "8.7.3",
+    "strapi-plugin-config-sync": "^1.0.1",
+    "strapi-plugin-placeholder": "^4.1.7",
+    "strapi-tiptap-editor": "^0.7.10"
   },
   "author": {
     "name": "A Strapi developer"
