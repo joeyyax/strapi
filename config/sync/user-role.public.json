@@ -4,6 +4,30 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::about.about.find"
+    },
+    {
+      "action": "api::client.client.find"
+    },
+    {
+      "action": "api::client.client.findOne"
+    },
+    {
+      "action": "api::contact.contact.find"
+    },
+    {
+      "action": "api::disclaimer.disclaimer.find"
+    },
+    {
+      "action": "api::home.home.find"
+    },
+    {
+      "action": "api::project.project.find"
+    },
+    {
+      "action": "api::project.project.findOne"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {
