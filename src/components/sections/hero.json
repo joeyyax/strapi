@@ -13,11 +13,11 @@
     "body": {
       "type": "richtext"
     },
-    "emphasis_color": {
+    "title_emphasis_color": {
       "type": "enumeration",
       "enum": [
-        "yellow",
-        "blue"
+        "yellow-orange",
+        "blue-red"
       ]
     }
   }
