@@ -48,16 +48,16 @@
           "sortable": true
         }
       },
-      "project_url": {
+      "url": {
         "edit": {
-          "label": "Project URL",
+          "label": "url",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "project_url",
+          "label": "url",
           "searchable": true,
           "sortable": true
         }
@@ -106,6 +106,35 @@
           "sortable": true
         }
       },
+      "image": {
+        "edit": {
+          "label": "image",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "image",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "project_types": {
+        "edit": {
+          "label": "project_types",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "project_types",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -136,6 +165,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "title",
+        "url",
+        "image",
+        "project_types"
+      ],
       "edit": [
         [
           {
@@ -149,23 +184,25 @@
         ],
         [
           {
-            "name": "project_url",
-            "size": 6
+            "name": "hero",
+            "size": 12
           }
         ],
         [
           {
-            "name": "hero",
-            "size": 12
+            "name": "url",
+            "size": 6
+          },
+          {
+            "name": "image",
+            "size": 6
           }
         ]
       ],
       "editRelations": [
         "client",
-        "partner"
-      ],
-      "list": [
-        "title"
+        "partner",
+        "project_types"
       ]
     }
   },

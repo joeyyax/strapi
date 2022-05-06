@@ -63,7 +63,8 @@
           "slug",
           "logo",
           "projects",
-          "partner_projects"
+          "partner_projects",
+          "industries"
         ]
       },
       "conditions": []
@@ -89,7 +90,8 @@
           "slug",
           "logo",
           "projects",
-          "partner_projects"
+          "partner_projects",
+          "industries"
         ]
       },
       "conditions": []
@@ -103,7 +105,8 @@
           "slug",
           "logo",
           "projects",
-          "partner_projects"
+          "partner_projects",
+          "industries"
         ]
       },
       "conditions": []
@@ -257,17 +260,115 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::industry.industry",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "clients"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::industry.industry",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::industry.industry",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::industry.industry",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "clients"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::industry.industry",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "clients"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::project-type.project-type",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::project-type.project-type",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::project-type.project-type",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::project-type.project-type",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::project-type.project-type",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::project.project",
       "properties": {
         "fields": [
           "title",
           "slug",
-          "project_url",
+          "url",
           "hero.title",
           "hero.body",
           "hero.emphasis_color",
           "client",
-          "partner"
+          "partner",
+          "image",
+          "project_types"
         ]
       },
       "conditions": []
@@ -291,12 +392,14 @@
         "fields": [
           "title",
           "slug",
-          "project_url",
+          "url",
           "hero.title",
           "hero.body",
           "hero.emphasis_color",
           "client",
-          "partner"
+          "partner",
+          "image",
+          "project_types"
         ]
       },
       "conditions": []
@@ -308,12 +411,14 @@
         "fields": [
           "title",
           "slug",
-          "project_url",
+          "url",
           "hero.title",
           "hero.body",
           "hero.emphasis_color",
           "client",
-          "partner"
+          "partner",
+          "image",
+          "project_types"
         ]
       },
       "conditions": []

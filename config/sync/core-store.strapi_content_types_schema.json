@@ -1481,6 +1481,12 @@
           "target": "api::project.project",
           "mappedBy": "partner"
         },
+        "industries": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::industry.industry",
+          "mappedBy": "clients"
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1553,6 +1559,12 @@
             "relation": "oneToMany",
             "target": "api::project.project",
             "mappedBy": "partner"
+          },
+          "industries": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::industry.industry",
+            "mappedBy": "clients"
           }
         },
         "kind": "collectionType"
@@ -1828,6 +1840,104 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::industry.industry": {
+      "kind": "collectionType",
+      "collectionName": "industries",
+      "info": {
+        "singularName": "industry",
+        "pluralName": "industries",
+        "displayName": "Industry",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "title"
+        },
+        "clients": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::client.client",
+          "inversedBy": "industries"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "industries",
+        "info": {
+          "singularName": "industry",
+          "pluralName": "industries",
+          "displayName": "Industry",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "title"
+          },
+          "clients": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::client.client",
+            "inversedBy": "industries"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "industry",
+      "connection": "default",
+      "uid": "api::industry.industry",
+      "apiName": "industry",
+      "globalId": "Industry",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::project.project": {
       "kind": "collectionType",
       "collectionName": "projects",
@@ -1849,7 +1959,7 @@
           "type": "uid",
           "targetField": "title"
         },
-        "project_url": {
+        "url": {
           "type": "string"
         },
         "hero": {
@@ -1869,6 +1979,20 @@
           "relation": "manyToOne",
           "target": "api::client.client",
           "inversedBy": "partner_projects"
+        },
+        "image": {
+          "allowedTypes": [
+            "images",
+            "videos"
+          ],
+          "type": "media",
+          "multiple": true
+        },
+        "project_types": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::project-type.project-type",
+          "inversedBy": "projects"
         },
         "createdAt": {
           "type": "datetime"
@@ -1923,7 +2047,7 @@
             "type": "uid",
             "targetField": "title"
           },
-          "project_url": {
+          "url": {
             "type": "string"
           },
           "hero": {
@@ -1943,6 +2067,20 @@
             "relation": "manyToOne",
             "target": "api::client.client",
             "inversedBy": "partner_projects"
+          },
+          "image": {
+            "allowedTypes": [
+              "images",
+              "videos"
+            ],
+            "type": "media",
+            "multiple": true
+          },
+          "project_types": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::project-type.project-type",
+            "inversedBy": "projects"
           }
         },
         "kind": "collectionType"
@@ -1953,6 +2091,104 @@
       "uid": "api::project.project",
       "apiName": "project",
       "globalId": "Project",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::project-type.project-type": {
+      "kind": "collectionType",
+      "collectionName": "project_types",
+      "info": {
+        "singularName": "project-type",
+        "pluralName": "project-types",
+        "displayName": "Project Type",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "title"
+        },
+        "projects": {
+          "type": "relation",
+          "relation": "manyToMany",
+          "target": "api::project.project",
+          "mappedBy": "project_types"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "project_types",
+        "info": {
+          "singularName": "project-type",
+          "pluralName": "project-types",
+          "displayName": "Project Type",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "title"
+          },
+          "projects": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::project.project",
+            "mappedBy": "project_types"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "project-type",
+      "connection": "default",
+      "uid": "api::project-type.project-type",
+      "apiName": "project-type",
+      "globalId": "ProjectType",
       "actions": {},
       "lifecycles": {}
     }
