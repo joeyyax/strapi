@@ -23,7 +23,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "projects": {
       "type": "relation",
@@ -36,6 +38,12 @@
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "partner"
+    },
+    "industries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::industry.industry",
+      "mappedBy": "clients"
     }
   }
 }

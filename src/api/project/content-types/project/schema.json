@@ -19,7 +19,7 @@
       "type": "uid",
       "targetField": "title"
     },
-    "project_url": {
+    "url": {
       "type": "string"
     },
     "hero": {
@@ -39,6 +39,20 @@
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "partner_projects"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "project_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-type.project-type",
+      "inversedBy": "projects"
     }
   }
 }
