@@ -18,6 +18,12 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  placeholder: {
+    enabled: true,
+    config: {
+      size: 10,
+    },
+  },
   email: {
     config: {
       provider: "amazon-ses",
@@ -29,6 +35,34 @@ module.exports = ({ env }) => ({
       settings: {
         defaultFrom: env("EMAIL_DEFAULT_FROM"),
         defaultReplyTo: env("EMAIL_DEFAULT_REPLY_TO"),
+      },
+    },
+  },
+  "preview-button": {
+    enabled: true,
+    config: {
+      contentTypes: [
+        {
+          uid: "api::contact.contact",
+          draft: {
+            query: {
+              slug: "contact",
+            },
+          },
+          published: {
+            basePath: "contact",
+          },
+        },
+      ],
+    },
+  },
+  transformer: {
+    enabled: true,
+    config: {
+      prefix: "/api/",
+      responseTransforms: {
+        removeAttributesKey: true,
+        removeDataKey: true,
       },
     },
   },
